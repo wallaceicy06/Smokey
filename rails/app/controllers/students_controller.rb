@@ -10,14 +10,23 @@ class StudentsController < ApplicationController
     end
     
     def create
-        puts student_params
-
         @student = Student.new(student_params)
 
         if @student.save
             render json: @student, status: :created
         else
             render json: @user.errors, status: :unprocessable_entity
+        end
+    end
+
+    def update
+        @student = Student.find(params[:id])
+
+        if @student.update_attributes(student_params)
+            render json: @student, status: :ok
+        else
+            puts @student.errors.full_messages
+            render json: @student.errors, status: :unprocessable_entity
         end
     end
 
