@@ -1,0 +1,24 @@
+<h3>Students</h3>
+
+{{outlet}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>NetID</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each controller as |student|}}
+      <tr>
+        <th scope="row">{{student.model.id}}</th>
+        <td>{{student.model.name}}</td>
+        <td>{{student.model.netid}}</td>
+        <td><button {{action 'destroy'}} class="btn">Destroy</button></td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

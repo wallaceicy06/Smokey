@@ -1,0 +1,14 @@
+{{outlet}}
+
+<form {{action "create" on="submit"}}>
+  <div class="form-group">
+    <label for="name">Name</label>
+    {{input type="text" class="form-control" value=newName}}
+  </div>
+  <div class="form-group">
+    <label for="netid">NetID</label>
+    {{input type="text" class="form-control" value=newNetId}}
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
