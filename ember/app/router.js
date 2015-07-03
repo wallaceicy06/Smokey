@@ -10,7 +10,9 @@ Router.map(function() {
     this.route('new');
   });
 
-  this.route('student', function() {});
+  this.route('student', { path: '/student/:student_id' }, function() {
+    this.route('edit');
+  });
 });
 
 export default Router;
