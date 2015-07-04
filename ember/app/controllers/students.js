@@ -24,9 +24,9 @@ export default Ember.ArrayController.extend({
     }
   },
 
-  empty: function() {
-    return this.get('length') == 0;
-  }.property(),
+  notEmpty: function() {
+    return this.get('length') !== 0;
+  }.property('length'),
 
   itemController: 'student'
 });

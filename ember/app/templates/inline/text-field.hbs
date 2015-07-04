@@ -1,0 +1,5 @@
+{{#if view.isEditing}}
+  {{view view.textField valueBinding=view.value}}
+{{else}}
+  {{yield}}
+{{/if}}
