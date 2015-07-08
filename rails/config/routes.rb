@@ -55,7 +55,10 @@ Rails.application.routes.draw do
   #   end
   namespace :api do
     resources :students, only: [:show, :index, :create, :update, :destroy]
+
+    get 'session', to: 'sessions#show'
+    post 'sessions', to: 'sessions#create'
+    delete 'session', to: 'sessions#destroy'
   end
 
-  get 'api/sessions/create', to: 'api/sessions#create'
 end

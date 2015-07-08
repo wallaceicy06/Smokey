@@ -1,25 +1,40 @@
 class Api::SessionsController < ApplicationController
-  def index
-    render json: {'hello': 'world'}, status: :ok
+  def show
+    if session[:username]
+       render json: {username: session[:username]}, status: :ok
+    else
+       render json: {}, status: :unauthorized
+    end
   end
 
   def create
+    logger.debug "Params #{params}"
+
     user = validate_ticket
 
     logger.debug "Got #{user}"
 
-    unless user.nil?
+    if user.nil?
+      render json: {}, status: :unauthorized
+    else
       session[:username] = user
+      render json: {username: user}, status: :created
     end
+  end
 
-    redirect_to "http://localhost:4200/"
+  def destroy
+    logger.debug "Invalidating #{session[:username]}"
+
+    session.delete(:username)
+
+    render json: {}, status: :ok
   end
 
   private
 
     def validate_ticket
       uri = URI("https://netid.rice.edu/cas/serviceValidate")
-      args = {ticket: params[:ticket], service: url_for(params.except(:ticket))}
+      args = {ticket: params[:ticket], service: "http://localhost:4200/session/validate"}
       uri.query = URI.encode_www_form(args)
 
       res = Net::HTTP.get_response(uri)
@@ -33,6 +48,5 @@ class Api::SessionsController < ApplicationController
       else
           return nil
       end
-        
     end
 end
