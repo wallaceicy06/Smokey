@@ -1,6 +1,6 @@
 import Ember from 'ember';
 
-var serviceUrl = "http://localhost:3000/api/sessions/create";
+var serviceUrl = "http://localhost:4200/session/validate";
 
 export default Ember.Route.extend({
   redirect: function() {

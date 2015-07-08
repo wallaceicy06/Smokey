@@ -4,6 +4,7 @@ module.exports = function(environment) {
   var ENV = {
     contentSecurityPolicy: {
       'connect-src': "'self' https://netid.rice.edu",
+      'script-src': "'self' https://netid.rice.edu"
     },
     modulePrefix: 'smokey',
     environment: environment,

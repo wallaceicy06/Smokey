@@ -13,7 +13,13 @@ Router.map(function() {
   this.route('student', { path: '/student/:student_id' }, function() {
     this.route('edit');
   });
+
   this.route('login');
+
+  this.route('session', function() {
+    this.route('validate');
+    this.route('invalidate');
+  });
 });
 
 export default Router;

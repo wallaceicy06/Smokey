@@ -18,11 +18,21 @@
           <a {{bind-attr href='view.href'}}>Students</a>
         {{/link-to}}
       </ul>
+      <ul class="nav navbar-nav navbar-right">
+        {{#if session.isAuthenticated}}
+          <li>
+            <a {{action 'invalidateSession'}}>Logout</a>
+          </li>
+        {{else}}
+          <li>
+            {{#link-to 'login'}}Login{{/link-to}}
+          </li>
+        {{/if}}
+       </ul>
     </div><!--/.nav-collapse -->
   </div>
 </nav>
 
-{{#link-to 'login'}}Login{{/link-to}}
 
 <div class="container">
   {{outlet}}
