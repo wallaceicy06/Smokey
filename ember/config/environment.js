@@ -3,7 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     contentSecurityPolicy: {
-      'connect-src': "'self' http://localhost:3000",
+      'connect-src': "'self' https://netid.rice.edu",
     },
     modulePrefix: 'smokey',
     environment: environment,

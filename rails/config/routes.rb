@@ -53,5 +53,9 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  namespace :api do
     resources :students, only: [:show, :index, :create, :update, :destroy]
+  end
+
+  get 'api/sessions/create', to: 'api/sessions#create'
 end

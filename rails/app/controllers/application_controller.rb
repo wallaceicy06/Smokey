@@ -10,4 +10,12 @@ class ApplicationController < ActionController::Base
         # headers['Access-Control-Max-Age']           = '1728000'
         # headers['Access-Control-Allow-Credentials'] = 'true'
     # end
+    
+    protected
+      
+      def logged_in
+        if session[:username] == nil
+          render json: {}, status: :unauthorized
+        end
+      end
 end
