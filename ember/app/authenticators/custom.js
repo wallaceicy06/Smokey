@@ -10,8 +10,7 @@ export default Base.extend({
         url: '/api/session',
         type: 'GET'
       }).success(function(response) {
-        console.log(response);
-        resolve();
+        resolve({username: response.username});
       }).fail(function() {
         console.log('failed');
         reject();
@@ -27,10 +26,8 @@ export default Base.extend({
         data: JSON.stringify(credentials),
         contentType: 'application/json'
       }).success(function(response) {
-        console.log(response);
-        resolve();
+        resolve({username: response.username});
       }).fail(function() {
-        console.log('failed!');
         reject();
       });
     });
