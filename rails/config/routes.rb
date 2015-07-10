@@ -61,4 +61,5 @@ Rails.application.routes.draw do
     delete 'session', to: 'sessions#destroy'
   end
 
+  post 'auth', to: 'auth#authenticate'
 end

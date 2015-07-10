@@ -20,6 +20,7 @@ Router.map(function() {
     this.route('validate');
     this.route('invalidate');
   });
+  this.route('logout');
 });
 
 export default Router;

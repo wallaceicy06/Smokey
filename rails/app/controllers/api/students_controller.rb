@@ -1,5 +1,5 @@
 class Api::StudentsController < ApplicationController
-    before_action :logged_in
+    # before_action :logged_in
 
     def show
         @student = Student.find(params[:id])

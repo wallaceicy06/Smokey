@@ -16,6 +16,17 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
+    'simple-auth': {
+      authorizer: 'simple-auth-authorizer:token'
+    },
+    'simple-auth-token': {
+      serverTokenEndpoint: '/auth/',
+      identificationField: 'ticket',
+      tokenPropertyName: 'token',
+      authorizationPrefix: 'Bearer ',
+      authorizationHeaderName: 'Authorization',
+      headers: {}
+    },
 
     APP: {
       // Here you can pass flags/options to your application instance

@@ -7,10 +7,10 @@ export default Base.extend({
   restore(data) {
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.ajax({
-        url: '/api/session',
+        url: '/auth',
         type: 'GET'
       }).success(function(response) {
-        resolve({username: response.username});
+        resolve({username: response.username, token: response.auth_token});
       }).fail(function() {
         console.log('failed');
         reject();
@@ -21,12 +21,13 @@ export default Base.extend({
   authenticate(credentials) {
     return new Ember.RSVP.Promise(function(resolve, reject) {
       Ember.$.ajax({
-        url: '/api/sessions',
+        url: '/auth',
         type: 'POST',
         data: JSON.stringify(credentials),
         contentType: 'application/json'
       }).success(function(response) {
-        resolve({username: response.username});
+        console.log(response);
+        resolve({username: response.username, token: response.auth_token});
       }).fail(function() {
         reject();
       });
@@ -36,7 +37,7 @@ export default Base.extend({
   invalidate(data) {
     return new Ember.RSVP.Promise(function(resolve) {
       Ember.$.ajax({
-        url: '/api/session',
+        url: '/auth',
         type: 'DELETE'
       }).then(function() {
         resolve();
