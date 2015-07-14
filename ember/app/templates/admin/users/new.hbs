@@ -1,0 +1,9 @@
+<form {{action "create" on="submit"}}>
+  <div class="form-group">
+    <label for="name">Username</label>
+    {{input type="text" class="form-control" value=newUsername}}
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {{#link-to 'admin.users.index' tagName='button' class='btn btn-default'}}Close{{/link-to}}
+</form>
+
