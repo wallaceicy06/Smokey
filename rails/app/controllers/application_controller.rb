@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   # -- Something was uncommented that I don't have anymore --
 
-  before_action :set_current_user, :authenticate_request
+  before_action :authenticate_request
 
   class NotAuthenticatedError < StandardError
   end
@@ -21,26 +21,18 @@ class ApplicationController < ActionController::Base
 
   private
 
-    def set_current_user
-      if decoded_auth_token
-        @current_user ||= User.find(decoded_auth_token[:user_id])
-      end
-    end
-
     def authenticate_request
-      if auth_token_expired?
-        fail AuthenticationTimeoutError
-      elsif !@current_user
-        fail NotAuthenticatedError
+      if decoded_auth_token
+        @current_user ||= User.find_by id: decoded_auth_token[:user_id]
       end
+    rescue JWT::ExpiredSignature
+      fail AuthenticationTimeoutError
+    rescue
+      fail NotAuthenticatedError
     end
 
     def decoded_auth_token
       @decoded_auth_token ||= AuthToken.decode(http_auth_header_content)
-    end
-
-    def auth_token_expired?
-      decoded_auth_token && decoded_auth_token.expired?
     end
 
     def http_auth_header_content
@@ -53,6 +45,7 @@ class ApplicationController < ActionController::Base
           nil
         end
       end
+
     end
 
  # protected
