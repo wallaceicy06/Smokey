@@ -1,6 +1,4 @@
 class Api::StudentsController < ApplicationController
-    # before_action :logged_in
-
     def show
         @student = Student.find(params[:id])
 
@@ -27,7 +25,6 @@ class Api::StudentsController < ApplicationController
         if @student.update_attributes(student_params)
             render json: @student, status: :ok
         else
-            puts @student.errors.full_messages
             render json: @student.errors, status: :unprocessable_entity
         end
     end

@@ -6,18 +6,24 @@ export default Ember.ArrayController.extend({
       console.log('got here');
 
       var username = this.get('newUsername');
+      var firstName = this.get('newFirstName');
+      var lastName = this.get('newLastName');
 
-      if (!username) {
+      if (!username || !firstName || !lastName) {
         return false;
       }
 
       var user = this.store.createRecord('user', {
-        username: username
+        username: username,
+        firstName: firstName,
+        lastName: lastName
       });
 
       user.save();
 
       this.set('newUsername', '');
+      this.set('newFirstName', '');
+      this.set('newLastName', '');
     }
   },
 

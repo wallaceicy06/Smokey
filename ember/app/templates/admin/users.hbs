@@ -4,25 +4,30 @@
   <table class="table">
     <thead>
       <tr>
-        <th class="col-md-1">ID</th>
         <th class="col-md-3">Username</th>
+        <th class="col-md-3">First Name</th>
+        <th class="col-md-3">Last Name</th>
         <th class="col-md-3"><!-- Edit Controls --></th>
       </tr>
     </thead>
     <tbody>
       {{#each controller as |user|}}
         <tr>
-          <th scope="row">{{user.model.id}}</th>
-          <td>
-            {{#view 'inline-text-field' valueBinding=user.model.name}}
+          <th scope="row">
+            {{#view 'inline-text-field' value=user.model.username}}
               {{user.model.username}}
             {{/view}}
+          </th>
+          <td>
+            {{#view 'inline-text-field' value=user.model.firstName}}
+              {{user.model.firstName}}
+            {{/view}}
           </td>
-          <!-- <td {{action 'toggleEdit' onEvent='doubleClick'}}> -->
-            <!-- {{#view 'inline-text-field' valueBinding=user.model.netid}} -->
-              <!-- {{user.model.netid}} -->
-            <!-- {{/view}} -->
-          <!-- </td> -->
+          <td>
+            {{#view 'inline-text-field' value=user.model.lastName}}
+              {{user.model.lastName}}
+            {{/view}}
+          </td>
           <td>
             <button {{action 'destroy'}} class="btn btn-default">Destroy</button>
           </td>

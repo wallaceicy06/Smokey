@@ -11,11 +11,11 @@ export default Ember.Route.extend(ApplicationRouteMixin, {
       this.transitionTo('index');
     },
 
-    sessionAuthenticationFailed: function(error) {
+    sessionAuthenticationFailed: function() {
       this.transitionTo('unauthorized');
     },
 
-    authorizationFailed: function(error) {
+    authorizationFailed: function() {
       this.transitionTo('unauthorized');
     },
 

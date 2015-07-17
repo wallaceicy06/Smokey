@@ -27,6 +27,7 @@ module.exports = function(environment) {
       authorizationHeaderName: 'Authorization',
       headers: {}
     },
+    ipAddress: "localhost:4200",
 
     APP: {
       // Here you can pass flags/options to your application instance

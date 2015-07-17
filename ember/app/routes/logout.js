@@ -1,6 +1,7 @@
 import Ember from 'ember';
+import Config from '../config/environment';
 
-var serviceUrl = "http://localhost:4200/session/invalidate";
+var serviceUrl = "http://" + Config.ipAddress + "/session/invalidate";
 
 export default Ember.Route.extend({
   redirect: function() {

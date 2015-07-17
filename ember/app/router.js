@@ -6,7 +6,7 @@ var Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.resource('students', function() {
+  this.route('students', function() {
     this.route('new');
   });
 
@@ -22,15 +22,13 @@ Router.map(function() {
   });
   this.route('logout');
   this.route('dashboard');
-  this.resource('admin', function() {
-    this.resource('admin.users');
-  });
 
   this.route('admin', function() {
     this.route('users', function() {
       this.route('new');
     });
   });
+
   this.route('not-found');
   this.route('unauthorized');
 });
