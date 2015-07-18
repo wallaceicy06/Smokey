@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :username, :first_name, :last_name, presence: :true
+  validates :username, :first_name, :last_name, presence: true
   before_save :infer_email_address
 
   def generate_auth_token
