@@ -1,8 +1,7 @@
 import { moduleFor, test } from 'ember-qunit';
 
 moduleFor('route:admin/deck/cards', 'Unit | Route | admin/deck/cards', {
-  // Specify the other units that are required for this test.
-  // needs: ['controller:foo']
+  // needs: ['controller:admin/deck']
 });
 
 test('it exists', function(assert) {
