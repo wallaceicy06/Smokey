@@ -3,8 +3,6 @@ import Ember from 'ember';
 export default Ember.ArrayController.extend({
   actions: {
     create: function() {
-      console.log('got here');
-
       var username = this.get('newUsername');
       var firstName = this.get('newFirstName');
       var lastName = this.get('newLastName');

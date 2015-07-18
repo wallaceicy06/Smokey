@@ -1,0 +1,14 @@
+<form {{action "create" on="submit"}}>
+  <div class="form-group">
+    <label for="name">Name</label>
+    {{input type="text" class="form-control" value=newName}}
+  </div>
+  <div class="form-group">
+    <label for="capacity">Capacity</label>
+    {{input type="text" class="form-control" value=newCapacity}}
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {{#link-to 'admin.deck.cards.index' tagName='button' class='btn btn-default'}}Close{{/link-to}}
+</form>
+

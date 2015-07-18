@@ -27,6 +27,15 @@ Router.map(function() {
     this.route('users', function() {
       this.route('new');
     });
+    this.route('decks', function() {
+      this.route('new');
+    });
+    this.route('deck', { path: '/deck/:deck_id' }, function() {
+      this.route('cards', function() {
+        this.route('new');
+      });
+      this.route('card');
+    });
   });
 
   this.route('not-found');

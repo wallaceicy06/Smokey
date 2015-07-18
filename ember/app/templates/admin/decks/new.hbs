@@ -1,0 +1,9 @@
+<form {{action "create" on="submit"}}>
+  <div class="form-group">
+    <label for="name">Name</label>
+    {{input type="text" class="form-control" value=newName}}
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  {{#link-to 'admin.decks.index' tagName='button' class='btn btn-default'}}Close{{/link-to}}
+</form>
+

@@ -1,0 +1,30 @@
+{{outlet}}
+
+<table class="table">
+  <thead>
+    <tr>
+      <th class="col-md-6">Name</th>
+      <th class="col-md-3">Capacity</th>
+      <th class="col-md-3"><!-- Edit Controls --></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each controller as |card|}}
+      <tr>
+        <th scope="row">
+          {{#view 'inline-text-field' value=card.model.name}}
+            {{card.model.name}}
+          {{/view}}
+        </th>
+        <th scope="row">
+          {{#view 'inline-text-field' value=card.model.capacity}}
+            {{card.model.capacity}}
+          {{/view}}
+        </th>
+        <td>
+          <button {{action 'destroy'}} class="btn btn-default">Destroy</button>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
