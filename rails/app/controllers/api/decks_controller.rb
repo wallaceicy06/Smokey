@@ -1,7 +1,4 @@
 class Api::DecksController < ApplicationController
-  # TODO REMOVE_THIS
-  skip_before_action :authenticate_request
-
   Deck = ::Deck
 
   def show

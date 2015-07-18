@@ -1,7 +1,4 @@
 class Api::CardsController < ApplicationController
-  # TODO REMOVE THIS
-  skip_before_action :authenticate_request
-
   def show
     @card = Card.find(params[:id])
 
