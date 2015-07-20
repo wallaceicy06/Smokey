@@ -55,7 +55,8 @@ Rails.application.routes.draw do
   #   end
   namespace :api do
     resources :students, only: [:show, :index, :create, :update, :destroy]
-    resources :users, only: [:index, :create, :update, :destroy]
+    resources :users, only: [:show, :index, :create, :update, :destroy]
+    resources :jacks, only: [:show]
     resources :decks, only: [:show, :index, :create, :update, :destroy]
     resources :cards, only: [:show, :index, :create, :update, :destroy]
   end

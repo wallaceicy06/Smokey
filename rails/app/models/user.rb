@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :jack_invitations
+  has_many :invited_jacks, through: :jack_invitations, source: :jack
   validates :username, :first_name, :last_name, presence: true
   before_save :infer_email_address
 

@@ -9,7 +9,7 @@ class AuthController < ApplicationController
     if user.nil?
       render json: { error: 'Invalid credentials' }, status: :unauthorized
     else
-      render json: { username: username, token: user.generate_auth_token }
+      render json: { user_id: user.id, username: username, token: user.generate_auth_token }
     end
   end
 

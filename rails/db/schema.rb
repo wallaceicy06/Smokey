@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150717214708) do
+ActiveRecord::Schema.define(version: 20150720004416) do
 
   create_table "cards", force: :cascade do |t|
     t.string   "name"
@@ -28,6 +28,23 @@ ActiveRecord::Schema.define(version: 20150717214708) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "jack_invitations", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "jack_id"
+  end
+
+  add_index "jack_invitations", ["jack_id"], name: "index_jack_invitations_on_jack_id"
+  add_index "jack_invitations", ["user_id"], name: "index_jack_invitations_on_user_id"
+
+  create_table "jacks", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "deck_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "jacks", ["deck_id"], name: "index_jacks_on_deck_id"
 
   create_table "students", force: :cascade do |t|
     t.string   "name"
