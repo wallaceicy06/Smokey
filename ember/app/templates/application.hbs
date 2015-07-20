@@ -138,7 +138,7 @@
             <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
             <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
             <li class="divider"></li>
-            <li>{{#link-to 'logout'}}<i class="fa fa-sign-out fa-fw"></i> Logout {{session.secure.username}}{{/link-to}}</li>
+            <li>{{#link-to 'logout'}}<i class="fa fa-sign-out fa-fw"></i> Logout {{currentUser.username}}{{/link-to}}</li>
           {{else}}
             <li>{{#link-to 'login'}}<i class="fa fa-sign-in fa-fw"></i> Login{{/link-to}}</li>
           {{/if}}

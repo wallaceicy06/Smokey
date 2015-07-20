@@ -3,7 +3,7 @@ import ApplicationRouteMixin from 'simple-auth/mixins/application-route-mixin';
 
 export default Ember.Route.extend(ApplicationRouteMixin, {
   actions: {
-    sessionAuthenticationSucceeded:function() {
+    sessionAuthenticationSucceeded:function(repsonse) {
       this.transitionTo('dashboard');
     },
 

@@ -1,5 +1,8 @@
 <div class="container-fluid">
   <h1>Dashboard</h1>
+  {{#each currentUser.invitedJacks as |jack|}}
+    <p>{{jack.name}}</p>
+  {{/each}}
   <p>Here you will find all current, future, and former jacks. Please expand one in order to make changes</p>
   <div>
     <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
