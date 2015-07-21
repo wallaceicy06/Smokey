@@ -17,7 +17,8 @@ module.exports = function(environment) {
       }
     },
     'simple-auth': {
-      authorizer: 'simple-auth-authorizer:token'
+      authorizer: 'simple-auth-authorizer:token',
+      store: 'simple-auth-session-store:cookie'
     },
     'simple-auth-token': {
       serverTokenEndpoint: '/auth/',
