@@ -4,12 +4,14 @@ class AuthController < ApplicationController
   def authenticate
     username = validate_ticket 
 
-    user = User.where({ username: username }).first
+    @user = User.where({ username: username }).first
 
-    if user.nil?
+    if @user.nil?
       render json: { error: 'Invalid credentials' }, status: :unauthorized
     else
-      render json: { user_id: user.id, username: username, token: user.generate_auth_token }
+      # TODO eventually get email working
+      # UserMailer.welcome_email(@user).deliver_later
+      render json: { user_id: @user.id, username: username, token: @user.generate_auth_token }
     end
   end
 
